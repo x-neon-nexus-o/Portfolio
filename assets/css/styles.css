@@ -1,3 +1,4 @@
+/* Existing styles (unchanged) */
 body {
   font-family: 'Work Sans', sans-serif;
   --bs-primary: #1c3dca;
@@ -14,6 +15,10 @@ body {
 .container {
   height: 100%;
   max-width: 960px;
+}
+
+header .text-badge {
+  background: transparent;
 }
 
 .text-badge {
@@ -47,3 +52,254 @@ footer {
   background: var(--bs-gray-900);
 }
 
+/* New futuristic button styles */
+.futuristic-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+  z-index: 1;
+}
+
+.futuristic-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(2, 170, 255, 0.7);
+  border-color: var(--bs-info);
+  background: linear-gradient(45deg, var(--bs-dark), rgba(2, 170, 255, 0.2));
+  animation: neonPulse 1.5s infinite;
+}
+
+.futuristic-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(2, 170, 255, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.futuristic-btn:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.futuristic-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.futuristic-btn:hover svg {
+  transform: translateX(5px);
+}
+
+/* New futuristic button styles for navbar */
+.futuristic-nav-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border: none;
+  z-index: 1;
+}
+
+.futuristic-nav-btn:hover {
+  transform: scale(1.1);
+  background-color: transparent;
+  color: var(--bs-white);
+  animation: borderChase 2s linear infinite;
+}
+
+.futuristic-nav-btn::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.futuristic-nav-btn:hover::before {
+  border-color: var(--bs-primary);
+  animation: borderChaseGlow 2s linear infinite;
+}
+
+.futuristic-nav-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--bs-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: -1;
+}
+
+.futuristic-nav-btn:hover::after {
+  transform: translate(-50%, -50%) scale(10);
+  opacity: 0.3;
+}
+
+/* Keyframes for border chase effect */
+@keyframes borderChase {
+  0% {
+    box-shadow: 0 0 5px var(--bs-primary);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--bs-primary);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--bs-primary);
+  }
+}
+
+@keyframes borderChaseGlow {
+  0% {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 10px var(--bs-primary);
+  }
+  50% {
+    border-color: rgba(28, 61, 202, 0.5);
+    box-shadow: 0 0 20px var(--bs-primary);
+  }
+  100% {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 10px var(--bs-primary);
+  }
+}
+
+/* Keyframes for neon pulse effect */
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(2, 170, 255, 0.5),
+                0 0 20px rgba(2, 170, 255, 0.3),
+                0 0 30px rgba(2, 170, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(2, 170, 255, 0.7),
+                0 0 30px rgba(2, 170, 255, 0.5),
+                0 0 45px rgba(2, 170, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(2, 170, 255, 0.5),
+                0 0 20px rgba(2, 170, 255, 0.3),
+                0 0 30px rgba(2, 170, 255, 0.1);
+  }
+}
+
+/* Project card hover effect */
+.card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card-img {
+  transition: opacity 0.3s ease;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Slightly black semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-text {
+  color: var(--bs-info); /* Matches the blue of PORTFOLIO text (#02aaff) */
+  font-family: 'Bebas Neue', serif; /* Bold, impactful font like section titles */
+  font-size: 1.5rem; /* Slightly larger for prominence */
+  text-align: center;
+  margin: 0;
+  padding: 0 10px;
+  text-transform: uppercase; /* Matches PORTFOLIO style */
+}
+
+.card:hover .card-img {
+  opacity: 0.6; /* Makes the image slightly less visible */
+}
+
+.card:hover .card-overlay {
+  opacity: 1; /* Shows the text overlay */
+}
+
+.typewriter {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.typewriter-text {
+  color: var(--bs-white);
+  white-space: nowrap;
+}
+
+.typewriter::after {
+  content: '|';
+  position: absolute;
+  right: -10px;
+  color: var(--bs-info);
+  font-size: 0.8em;
+  animation: blink 0.7s infinite;
+}
+
+.typewriter.typing-complete::after {
+  content: none;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+header {
+  margin: 0;
+  padding: 0;
+}
+
+.header-bg {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.header-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+.navbar {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.container.d-flex.flex-column.justify-content-end.align-items-start {
+  position: relative;
+  z-index: 1;
+}

@@ -17,7 +17,11 @@
 
 <body style="background: rgb(3,3,3);">
     <header>
-        <div data-bss-parallax-bg="true" style="height: 600px;background-image: url(&quot;assets/img/sung-jinwoo-dragon-3840x2160-15351.jpg&quot;);background-position: center;background-size: cover;">
+        <div class="header-bg" style="height: 600px; position: relative; overflow: hidden;">
+            <video autoplay muted loop class="header-video">
+                <source src="assets/jake-and-finn-starry-night-sky-adventure-time-moewalls-com.mp4" type="video/mp4">
+                <img src="assets/img/sung-jinwoo-dragon-3840x2160-15351.jpg" alt="Fallback background" style="width: 100%; height: 100%; object-fit: cover;">
+            </video>
             <nav class="navbar navbar-dark navbar-expand-md py-3">
                 <div class="container-fluid"><a class="navbar-brand d-flex align-items-center" href="index.html"><span>PORTFOLIO</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-5">
@@ -26,12 +30,12 @@
                             <li class="nav-item"><a class="nav-link" href="#education" style="color: var(--bs-white);">EDUCATION</a></li>
                             <li class="nav-item"><a class="nav-link" href="#projects" style="font-family: 'Work Sans', sans-serif;color: var(--bs-navbar-active-color);"><strong>PROJECTS</strong></a></li>
                             <li class="nav-item"><a class="nav-link" href="#contact-us" style="color: var(--bs-navbar-brand-color);">CONTACT ME</a></li>
-                        </ul><a class="btn btn-primary ms-md-2" role="button" style="background: var(--bs-dark);" href="#HireMe">HIRE ME</a>
+                        </ul><a class="btn btn-primary ms-md-2 futuristic-nav-btn" role="button" style="background: var(--bs-dark);" href="#HireMe">HIRE ME</a>
                     </div>
                 </div>
             </nav>
             <div class="container d-flex flex-column justify-content-end align-items-start" style="height: 359px;width: 963px;">
-                <h1 class="display-3 fw-bold">Prathamesh Gawas</h1>
+                <h1 class="display-3 fw-bold typewriter"><span class="typewriter-text"></span></h1>
                 <p class="fs-2 text-info text-badge mb-5">Not Yet Capable For Designation</p>
             </div>
         </div>
@@ -79,7 +83,7 @@
                 </ul>
             </div>
         </section>
-        <section id="HireMe"  class="py-4 py-xl-5">
+        <section id="HireMe" class="py-4 py-xl-5">
             <div class="container">
                 <div class="banner">
                     <video autoplay muted loop class="banner-video">
@@ -89,7 +93,7 @@
                     <p class="fs-1" style="font-family: 'Work Sans', sans-serif;font-weight: bold;">
                         <span style="font-weight: normal !important;">I am currently</span><strong> </strong>open <span style="font-weight: normal !important;">to work</span>
                     </p>
-                    <a class="btn btn-dark btn-lg text-uppercase fw-bold" role="button" style="font-family: 'Work Sans', sans-serif;" href="https://www.linkedin.com/in/prathameshgawas/">Hire ME <svg xmlns="http://www.w3.org/2000/svg" viewBox="-96 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 20px;">
+                    <a class="btn btn-dark btn-lg text-uppercase fw-bold futuristic-btn" role="button" style="font-family: 'Work Sans', sans-serif;" href="https://www.linkedin.com/in/prathameshgawas/">Hire ME <svg xmlns="http://www.w3.org/2000/svg" viewBox="-96 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 20px;">
                         <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
                         <path d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path>
                     </svg></a>
@@ -102,10 +106,14 @@
                 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 py-5 projects">
                     <div class="col">
                         <div class="card">
-                            <a href="#">
-                            <img class="card-img w-100 d-block" src="assets/img/project-4.png" width="294" height="176"></div>
-                        </a>
+                            <a href="https://github.com/x-neon-nexus-o/Inventory-Management-System "target="_blank" rel="noopener noreferrer">
+                                <img class="card-img w-100 d-block" src="assets/img/Image.jpg" width="294" height="176">
+                                <div class="card-overlay">
+                                    <p class="card-text">Inventory Management System</p>
+                                </div>
+                            </a>
                         </div>
+                    </div>
                     <div class="col">
                         <div class="card">
                             <a href="#">
@@ -230,6 +238,26 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const typewriterText = document.querySelector('.typewriter-text');
+            const text = 'Prathamesh Gawas';
+            let index = 0;
+    
+            function type() {
+                if (index < text.length) {
+                    typewriterText.textContent += text[index];
+                    index++;
+                    setTimeout(type, 100);
+                } else {
+                    typewriterText.parentElement.classList.add('typing-complete');
+                }
+            }
+    
+            type();
+        });
+    </script>
 </body>
 
 </html>
