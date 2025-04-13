@@ -52,7 +52,6 @@ footer {
   background: var(--bs-gray-900);
 }
 
-/* New futuristic button styles */
 .futuristic-btn {
   position: relative;
   overflow: hidden;
@@ -84,6 +83,89 @@ footer {
 
 .futuristic-btn:hover::before {
   transform: translate(-50%, -50%) scale(1);
+}
+
+.futuristic-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 150%;
+  height: 2px;
+  background: var(--bs-info);
+  box-shadow: 0 0 8px var(--bs-info), 0 0 12px rgba(2, 170, 255, 0.7);
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  opacity: 0;
+  transition: left 0.5s ease-in-out, opacity 0.3s ease;
+  z-index: 0;
+}
+
+.futuristic-btn:hover::after {
+  left: 100%;
+  opacity: 1;
+}
+
+.futuristic-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.futuristic-btn:hover svg {
+  transform: translateX(5px);
+}
+
+.futuristic-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+  z-index: 1;
+}
+
+.futuristic-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(2, 170, 255, 0.7);
+  border-color: var(--bs-info);
+  background: linear-gradient(45deg, var(--bs-dark), rgba(2, 170, 255, 0.2));
+  animation: neonPulse 1.5s infinite;
+}
+
+.futuristic-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(2, 170, 255, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.futuristic-btn:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.futuristic-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 150%;
+  height: 2px;
+  background: var(--bs-info);
+  box-shadow: 0 0 8px var(--bs-info), 0 0 12px rgba(2, 170, 255, 0.7);
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  opacity: 0;
+  transition: left 0.5s ease-in-out, opacity 0.3s ease;
+  z-index: 0;
+}
+
+.futuristic-btn:hover::after {
+  left: 100%;
+  opacity: 1;
 }
 
 .futuristic-btn svg {
@@ -302,4 +384,52 @@ header {
 .container.d-flex.flex-column.justify-content-end.align-items-start {
   position: relative;
   z-index: 1;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--bs-info);
+  box-shadow: 0 0 8px var(--bs-info), 0 0 12px rgba(2, 170, 255, 0.7);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus::after {
+  transform: scaleX(1);
+}
+
+.navbar-brand {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--bs-info);
+  box-shadow: 0 0 8px var(--bs-info), 0 0 12px rgba(2, 170, 255, 0.7);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover::after,
+.navbar-brand:focus::after {
+  transform: scaleX(1);
 }
